@@ -7,7 +7,7 @@ variable "secretaccess_key" {
 
 variable "ami" {
     description = "AMI ID"
-    default = "ami-033b95fb8079dc481"
+    default = "ami-0b614a5d911900a9b"
 }
 variable "app_instance_type"{
     description = "EC2 Instance type example:t2.micro"
@@ -18,7 +18,7 @@ variable "subnet_cidr" {
 }
 
 variable "subnet_azs" {
-    default = "us-east-1b"
+    default = "us-east-2b"
 }
 variable "instance_tenancy" {
     description = "Tenancy of VPC"
@@ -33,12 +33,12 @@ variable "custom_vpc" {
 }
 variable "ha1_az" {
     type = string
-    default = "us-east-1b"
+    default = "us-east-2b"
 
 }
 variable "ha2_az" {
     type = string
-    default = "us-east-1c"
+    default = "us-east-2c"
 
 }
 variable "key_name" {
