@@ -23,6 +23,7 @@ resource "aws_instance" "cloudboult-HA-app-1" {
     tags = {
         Name = "cloudboult-HA-app-1"
     }
+    subnet_id = var.subnet_pub1
     #subnet_id = aws_subnet.public_subnet.id
     #subnet_id     = element(local.subs, count.index)
     /*depends_on = [
@@ -42,10 +43,6 @@ resource "aws_instance" "cloudboult-HA-app-1" {
 }*/
 
 
-
-
-
-
 //creating public subnet
 /*resource "aws_subnet" "public_subnet" {
     //count = 2
@@ -59,10 +56,10 @@ resource "aws_instance" "cloudboult-HA-app-1" {
     tags = {
         "Name" = "cloudboult-HA-Public-Subnet-BN"
     }
-}
+}*/
 
 //creating Internet Gateway for  vpc  connect internet
-resource "aws_internet_gateway" "igw" {
+/*resource "aws_internet_gateway" "igw" {
     vpc_id = aws_vpc.cloudboult_vpc.id
     tags = {
         "Name" = "cloudboult-HA-IG-BN"

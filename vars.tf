@@ -13,6 +13,11 @@ variable "app_instance_type"{
     description = "EC2 Instance type example:t2.micro"
     default = "t2.micro"
 }
+
+variable "subnet_pub1" {
+    description = "Public Subnet 1"
+    default = "subnet-09918fa2d642e5cc3"
+}
 variable "subnet_cidr" {
     default = "10.0.0.0/24"
 }
@@ -43,6 +48,6 @@ variable "ha2_az" {
 }
 variable "key_name" {
     description = "EC2 KeyPair"
-    default = "tfec2"
+    default = "se-demo"
   
 }
