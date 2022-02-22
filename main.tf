@@ -23,7 +23,7 @@ resource "aws_instance" "cloudboult-HA-app-1" {
     tags = {
         Name = "cloudboult-HA-app-1"
     }
-    subnet_id = aws_subnet.public_subnet.id
+    #subnet_id = aws_subnet.public_subnet.id
     #subnet_id     = element(local.subs, count.index)
     /*depends_on = [
       aws_vpc.cloudboult_vpc
@@ -47,7 +47,7 @@ resource "aws_instance" "cloudboult-HA-app-1" {
 
 
 //creating public subnet
-resource "aws_subnet" "public_subnet" {
+/*resource "aws_subnet" "public_subnet" {
     //count = 2
     vpc_id = "${aws_vpc.cloudboult_vpc.id}"
     cidr_block = "${var.subnet_cidr}"
@@ -68,7 +68,7 @@ resource "aws_internet_gateway" "igw" {
         "Name" = "cloudboult-HA-IG-BN"
     }
   
-}
+}*/
 
 //Creating a ALB for HA 
 
