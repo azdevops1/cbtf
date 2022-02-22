@@ -25,6 +25,7 @@ resource "aws_instance" "cloudboult-HA-app-1" {
     }
     subnet_id = var.subnet_pub1
     vpc_security_group_ids = ["sg-00835b8be90bc607c"]
+    vpc = "vpc-0be1516094cad30f2"
     #subnet_id = aws_subnet.public_subnet.id
     #subnet_id     = element(local.subs, count.index)
     /*depends_on = [
