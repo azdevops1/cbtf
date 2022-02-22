@@ -18,12 +18,13 @@ resource "aws_instance" "cloudboult-HA-app-1" {
     #for_each = aws_subnet.public_subnet[*]
     ami = var.ami
     instance_type = var.app_instance_type
-    #key_name = var.key_name
+    key_name = var.key_name
     #availability_zone = var.ha2_az
     tags = {
         Name = "cloudboult-HA-app-1"
     }
     subnet_id = var.subnet_pub1
+    vpc_security_group_ids = ["sg-00835b8be90bc607c"]
     #subnet_id = aws_subnet.public_subnet.id
     #subnet_id     = element(local.subs, count.index)
     /*depends_on = [
