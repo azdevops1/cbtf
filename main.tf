@@ -15,7 +15,7 @@ data "aws_subnet_ids" "default" {
 
 data "aws_vpc" "lookup" {
   tags = {
-    Name = SalesDemo
+    Name = "SalesDemo"
   }
 }
 
