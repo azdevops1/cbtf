@@ -12,20 +12,34 @@ data "aws_subnet_ids" "default" {
 /*locals {
   subs = concat([aws_subnet.public-subnet-1.id], [aws_subnet.public-subnet-2.id])
 }*/
+
+data "aws_vpc" "lookup" {
+  tags = {
+    Name = SalesDemo
+  }
+}
+
+data "aws_security_group" "lookup" {
+  vpc_id = aws_vpc.lookup.id
+  tags = {
+    SG_Type = var.sg_type
+  }
+}
 resource "aws_instance" "cloudboult-HA-app-1" {
     #count = length(aws_subnet.public_subnet)
     #count = 2
     #for_each = aws_subnet.public_subnet[*]
     ami = var.ami
     instance_type = var.app_instance_type
+    subnet_id = var.subnet_pub1
+    vpc_id = aws_vpc.lookup.id
+    vpc_security_group_ids = ["sg-00835b8be90bc607c"]
     key_name = var.key_name
     #availability_zone = var.ha2_az
     tags = {
         Name = "cloudboult-HA-app-1"
     }
-    subnet_id = var.subnet_pub1
-    vpc_security_group_ids = ["sg-00835b8be90bc607c"]
-    vpc_id = "vpc-0be1516094cad30f2"
+
     #subnet_id = aws_subnet.public_subnet.id
     #subnet_id     = element(local.subs, count.index)
     /*depends_on = [
