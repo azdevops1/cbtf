@@ -30,7 +30,7 @@ resource "aws_instance" "cloudboult-HA-app-1" {
     ]
 }
 
-resource "aws_vpc" "cloudboult_vpc" {
+/*resource "aws_vpc" "cloudboult_vpc" {
     cidr_block = var.custom_vpc
     instance_tenancy = var.instance_tenancy
     enable_dns_support = true
@@ -39,7 +39,7 @@ resource "aws_vpc" "cloudboult_vpc" {
         "Name" = "Cloudbolt-HA-VPC-BN"
     }
   
-}
+}*/
 
 
 
