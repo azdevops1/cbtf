@@ -13,7 +13,7 @@ data "aws_subnet_ids" "default" {
   subs = concat([aws_subnet.public-subnet-1.id], [aws_subnet.public-subnet-2.id])
 }*/
 
-data "aws_vpc" "lookup" {
+/*data "aws_vpc" "lookup" {
   tags = {
     Name = "SalesDemo"
   }
@@ -24,7 +24,7 @@ data "aws_security_group" "lookup" {
   tags = {
     SG_Type = var.sg_type
   }
-}
+}*/
 resource "aws_instance" "cloudboult-HA-app-1" {
     #count = length(aws_subnet.public_subnet)
     #count = 2
@@ -32,7 +32,7 @@ resource "aws_instance" "cloudboult-HA-app-1" {
     ami = var.ami
     instance_type = var.app_instance_type
     subnet_id = var.subnet_pub1
-    vpc_id = aws_vpc.lookup.id
+    #vpc_id = aws_vpc.lookup.id
     vpc_security_group_ids = ["sg-00835b8be90bc607c"]
     key_name = var.key_name
     #availability_zone = var.ha2_az
