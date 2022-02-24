@@ -18,6 +18,7 @@ variable "subnet_pub1" {
     description = "Public Subnet 1"
     default = "subnet-09918fa2d642e5cc3"
 }
+/*
 variable "subnet_cidr" {
     default = "10.0.0.0/24"
 }
@@ -45,7 +46,7 @@ variable "ha2_az" {
     type = string
     default = "us-east-2c"
 
-}
+}*/
 variable "key_name" {
     description = "EC2 KeyPair"
     default = "se-demo"
